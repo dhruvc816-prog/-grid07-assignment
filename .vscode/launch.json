@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-AssignmentApplication<assignment>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.grid07.assignment.AssignmentApplication",
+            "projectName": "assignment",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
