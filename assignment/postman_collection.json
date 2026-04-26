@@ -1,0 +1,94 @@
+{
+    "info": {
+        "name": "Grid07 Assignment",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Create Post",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "url": {
+                    "raw": "http://localhost:8080/api/posts"
+                },
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"authorId\": 1,\n  \"authorType\": \"USER\",\n  \"content\": \"Hello World\"\n}"
+                }
+            }
+        },
+        {
+            "name": "Like Post",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:8080/api/posts/1/like"
+                }
+            }
+        },
+        {
+            "name": "Add Human Comment",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "url": {
+                    "raw": "http://localhost:8080/api/posts/1/comments"
+                },
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"authorId\": 2,\n  \"authorType\": \"USER\",\n  \"content\": \"Nice post!\",\n  \"depthLevel\": 1,\n  \"humanOwnerId\": 1\n}"
+                }
+            }
+        },
+        {
+            "name": "Add Bot Comment",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "url": {
+                    "raw": "http://localhost:8080/api/posts/1/comments"
+                },
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"authorId\": 99,\n  \"authorType\": \"BOT\",\n  \"content\": \"Bot reply here\",\n  \"depthLevel\": 1,\n  \"humanOwnerId\": 1\n}"
+                }
+            }
+        },
+        {
+            "name": "Bot Comment - Depth Exceeded",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "url": {
+                    "raw": "http://localhost:8080/api/posts/1/comments"
+                },
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"authorId\": 99,\n  \"authorType\": \"BOT\",\n  \"content\": \"Too deep\",\n  \"depthLevel\": 21,\n  \"humanOwnerId\": 1\n}"
+                }
+            }
+        }
+    ]
+}
